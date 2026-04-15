@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CV - Hikmah Safitri Ramadhani</title>
+
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Nunito:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --ink:      #3d2c35;
+      --muted:    #8c6e7a;
+      --accent:   #d4748a;
+      --accent2:  #e8a0b0;
+      --accent3:  #f5c6d0;
+      --bg:       #fff8f9;
+      --sidebar:  #f2d4dc;
+      --rule:     #f0c0cc;
+      --white:    #ffffff;
+    }
+
+    body {
+      font-family: 'Nunito', sans-serif;
+      background: #fde8ec;
+      color: var(--ink);
+      font-size: 13.5px;
+      line-height: 1.65;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    /* ── LAYOUT ── */
+    .page {
+      display: grid;
+      grid-template-columns: 255px 1fr;
+      min-height: 100vh;
+      max-width: 960px;
+      margin: 0 auto;
+      box-shadow: 0 8px 48px rgba(212,116,138,.2);
+    }
+
+    /* ── SIDEBAR ── */
+    .sidebar {
+      background: linear-gradient(170deg, #f7c5d0 0%, #f0aabe 60%, #e896ad 100%);
+      color: var(--ink);
+      padding: 48px 26px;
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+
+    .photo-wrap {
+      display: flex;
+      justify-content: center;
+    }
+
+    .photo {
+      width: 115px;
+      height: 115px;
+      border-radius: 50%;
+      border: 4px solid var(--white);
+      object-fit: cover;
+      box-shadow: 0 4px 20px rgba(212,116,138,.35);
+      background: #f7c5d0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Playfair Display', serif;
+      font-size: 38px;
+      color: #fff;
+    }
+
+    .s-heading {
+      font-family: 'Playfair Display', serif;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: #8c3a52;
+      margin-bottom: 14px;
+      padding-bottom: 7px;
+      border-bottom: 1.5px solid rgba(140,58,82,.25);
+    }
+
+    /* kontak */
+    .contact-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .contact-list li { display: flex; align-items: flex-start; gap: 9px; }
+    .contact-list .icon { width: 20px; flex-shrink: 0; font-size: 13px; margin-top: 1px; }
+    .contact-list span { color: #5c3040; font-size: 12.5px; }
+
+    /* skill */
+    .skill-row { margin-bottom: 12px; }
+    .skill-label {
+      font-size: 12.5px;
+      color: #5c3040;
+      margin-bottom: 5px;
+      display: flex;
+      justify-content: space-between;
+    }
+    .skill-bar {
+      height: 5px;
+      background: rgba(255,255,255,.45);
+      border-radius: 3px;
+      overflow: hidden;
+    }
+    .skill-fill {
+      height: 100%;
+      background: linear-gradient(90deg, #c45570, #e8a0b0);
+      border-radius: 3px;
+    }
+
+    /* bahasa */
+    .lang-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+    .lang-list li { display: flex; justify-content: space-between; font-size: 12.5px; color: #5c3040; }
+    .lang-level { color: #8c3a52; font-style: italic; font-size: 12px; font-weight: 600; }
+
+    /* minat tags */
+    .tags { display: flex; flex-wrap: wrap; gap: 7px; }
+    .tag-s {
+      font-size: 11px;
+      padding: 3px 10px;
+      border-radius: 20px;
+      color: #7a2d45;
+      background: rgba(255,255,255,.5);
+      border: 1px solid rgba(255,255,255,.7);
+    }
+
+    /* ── MAIN ── */
+    .main {
+      background: var(--bg);
+      padding: 48px 44px;
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+
+    /* name block */
+    .name-block {
+      border-bottom: 2px solid var(--rule);
+      padding-bottom: 22px;
+    }
+    .name-block h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 40px;
+      font-weight: 400;
+      line-height: 1.15;
+      color: var(--ink);
+    }
+    .name-block h1 span {
+      color: var(--accent);
+      font-style: italic;
+    }
+    .name-block .title {
+      font-size: 11.5px;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-top: 8px;
+    }
+
+    /* section headings */
+    .m-heading {
+      font-family: 'Playfair Display', serif;
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--accent);
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .m-heading::after {
+      content: '';
+      flex: 1;
+      height: 1.5px;
+      background: linear-gradient(90deg, var(--rule), transparent);
+    }
+
+    /* profil */
+    .profile-text {
+      color: var(--muted);
+      font-size: 13.5px;
+      line-height: 1.85;
+    }
+
+    /* timeline */
+    .timeline { display: flex; flex-direction: column; gap: 20px; }
+    .tl-item { display: grid; grid-template-columns: 95px 1fr; gap: 0 18px; }
+    .tl-year {
+      font-size: 11px;
+      color: var(--accent);
+      font-weight: 600;
+      padding-top: 3px;
+      text-align: right;
+      line-height: 1.4;
+    }
+    .tl-body {
+      border-left: 2px solid var(--accent3);
+      padding-left: 18px;
+      position: relative;
+    }
+    .tl-body::before {
+      content: '';
+      width: 9px; height: 9px;
+      border-radius: 50%;
+      background: var(--accent);
+      border: 2px solid var(--bg);
+      position: absolute;
+      left: -6px; top: 4px;
+      box-shadow: 0 0 0 2px var(--accent3);
+    }
+    .tl-title { font-weight: 600; font-size: 13.5px; color: var(--ink); }
+    .tl-org { font-size: 12.5px; color: var(--accent); margin: 2px 0 5px; font-style: italic; }
+    .tl-desc { font-size: 12.5px; color: var(--muted); }
+
+    /* penghargaan */
+    .award-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+    .tag {
+      font-size: 11.5px;
+      padding: 5px 13px;
+      border-radius: 20px;
+      border: 1.5px solid var(--rule);
+      color: var(--muted);
+      background: var(--white);
+    }
+    .tag.rose {
+      border-color: var(--accent2);
+      color: var(--accent);
+      background: #fff0f3;
+      font-weight: 600;
+    }
+
+    /* referensi */
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .ref-card {
+      background: var(--white);
+      border: 1.5px solid var(--rule);
+      padding: 15px 17px;
+      border-radius: 12px;
+    }
+    .ref-name { font-weight: 600; font-size: 13px; color: var(--ink); }
+    .ref-role { font-size: 12px; color: var(--accent); margin: 2px 0 6px; }
+    .ref-contact { font-size: 12px; color: var(--muted); line-height: 1.7; }
+
+    /* print */
+    @media print {
+      body { background: #fff; font-size: 12px; }
+      .page { box-shadow: none; max-width: 100%; }
+    }
+
+    /* mobile */
+    @media (max-width: 700px) {
+      .page { grid-template-columns: 1fr; }
+      .sidebar { padding: 32px 22px; }
+      .main { padding: 32px 22px; }
+      .tl-item { grid-template-columns: 80px 1fr; }
+      .two-col { grid-template-columns: 1fr; }
+      .name-block h1 { font-size: 30px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="page">
+
+  <!-- ═══ SIDEBAR ═══ -->
+  <aside class="sidebar">
+
+    <div class="photo-wrap">
+      <img class="photo" src="cv.jpeg" alt="Foto Hikmah Safitri">
+    </div>
+
+    <!-- KONTAK -->
+    <div>
+      <div class="s-heading">Kontak</div>
+      <ul class="contact-list">
+        <li>
+          <span class="icon">📍</span>
+          <span>Stain, Lorong Putri<br>Ambon, Maluku 97128</span>
+        </li>
+        <li>
+          <span class="icon">📞</span>
+          <span>+62 813-4104-2151</span>
+        </li>
+        <li>
+          <span class="icon">✉️</span>
+          <span>hkmsftr13@email.com</span>
+        </li>
+        <li>
+          <span class="icon">🌐</span>
+          <span>github.com/hkmsftr13-art</span>
+        </li>
+      </ul>
+    </div>
+
+    <!-- KEAHLIAN -->
+    <div>
+      <div class="s-heading">Keahlian</div>
+      <div class="skill-row">
+        <div class="skill-label"><span>Microsoft Office</span><span>85%</span></div>
+        <div class="skill-bar"><div class="skill-fill" style="width:85%"></div></div>
+      </div>
+      <div class="skill-row">
+        <div class="skill-label"><span>Python / R</span><span>75%</span></div>
+        <div class="skill-bar"><div class="skill-fill" style="width:75%"></div></div>
+      </div>
+      <div class="skill-row">
+        <div class="skill-label"><span>Komunikasi Publik</span><span>75%</span></div>
+        <div class="skill-bar"><div class="skill-fill" style="width:75%"></div></div>
+      </div>
+    </div>
+
+    <!-- BAHASA -->
+    <div>
+      <div class="s-heading">Bahasa</div>
+      <ul class="lang-list">
+        <li><span>Bahasa Indonesia</span><span class="lang-level">Mahir (C2)</span></li>
+        <li><span>Bahasa Ambon</span><span class="lang-level">Lanjut (B2)</span></li>
+        <li><span>Bahasa Bugis/Makassar</span><span class="lang-level">Penutur Asli</span></li>
+      </ul>
+    </div>
+
+    <!-- MINAT -->
+    <div>
+      <div class="s-heading">Minat</div>
+      <div class="tags">
+        <span class="tag-s">💻 Teknologi</span>
+        <span class="tag-s">🔬 Riset</span>
+        <span class="tag-s">🌿 Lingkungan</span>
+        <span class="tag-s">✍️ Penulisan</span>
+        <span class="tag-s">👥 Kepemimpinan</span>
+      </div>
+    </div>
+
+    <!-- HOBI -->
+    <div>
+    <div class="s-heading">Hobi</div>
+    <div class="tags">
+        <span class="tag-s">🏸 Badminton</span>
+        <span class="tag-s">🎬 Maraton Film</span>
+        <span class="tag-s">🎧 Mendengarkan Musik</span>
+    </div>
+    </div>
+
+  </aside>
+
+  <!-- ═══ MAIN ═══ -->
+  <main class="main">
+
+    <!-- NAMA -->
+    <div class="name-block">
+      <h1>Hikmah <span>Safitri</span><br>Ramadhani</h1>
+      <p class="title">Mahasiswa Ilmu Komputer &nbsp;·&nbsp;</p>
+    </div>
+
+    <!-- PROFIL -->
+    <div class="section">
+      <h2 class="m-heading">Profil</h2>
+      <p class="profile-text">
+        Mahasiswa aktif Ilmu Komputer Universitas Pattimura dengan IPK 3.53/4.00 yang memiliki
+        minat mendalam di bidang teknologi informasi dan pengembangan perangkat lunak. Terampil
+        dalam analisis data menggunakan Python dan memiliki kemampuan komunikasi publik yang baik.
+        Berkomitmen untuk terus berkembang dan memberikan kontribusi nyata di dunia digital,
+        khususnya bagi masyarakat Indonesia Timur.
+      </p>
+    </div>
+
+    <!-- PENDIDIKAN -->
+    <div class="section">
+      <h2 class="m-heading">Pendidikan</h2>
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-year">2024 –<br>Sekarang</div>
+          <div class="tl-body">
+            <div class="tl-title">S1 Ilmu Komputer</div>
+            <div class="tl-org">Universitas Pattimura, Ambon</div>
+            <div class="tl-desc">IPK: <strong>3.53 / 4.00</strong> — Sedang berjalan</div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-year">2021 – 2024</div>
+          <div class="tl-body">
+            <div class="tl-title">MA Negeri 1 Ambon</div>
+            <div class="tl-org">Jurusan IPA</div>
+            <div class="tl-desc">Nilai rata-rata: 91.4</div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-year">2018 – 2021</div>
+          <div class="tl-body">
+            <div class="tl-title">SMP Negeri 17 Marusu</div>
+            <div class="tl-desc">Nilai rata-rata: 91.4</div>        
+      </div>
+    </div>
+
+    <!-- PENGALAMAN -->
+    <div class="section">
+      <h2 class="m-heading">Pengalaman</h2>
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-year">2024 –<br>Sekarang</div>
+          <div class="tl-body">
+            <div class="tl-title">Anggota Aktif Organisasi</div>
+            <div class="tl-org">Himpunan Mahasiswa Ilmu Komputer — Unpatti</div>
+            <div class="tl-desc">
+              Aktif berpartisipasi dalam kegiatan akademik dan sosial himpunan mahasiswa.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PENGHARGAAN -->
+    <div class="section">
+      <h2 class="m-heading">Penghargaan &amp; Sertifikasi</h2>
+      <div class="award-tags">
+        <span class="tag">Sertifikasi Python — Dicoding</span>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<!-- Bootstrap 5 JS Bundle -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
